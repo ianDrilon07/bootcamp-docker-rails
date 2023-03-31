@@ -1,5 +1,5 @@
 <main>
-    <%= form_with model: @users, url: user_index_path, method: :post do |form| %>
+    <%= form_with model: @user, url: user_index_path do |form| %>
     <div style="margin-bottom: 15px;">
         <%= form.label :firstname%><br>
         <%= form.text_field :firstname, placeholder: "firstname" %>
