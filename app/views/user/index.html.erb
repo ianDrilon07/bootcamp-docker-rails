@@ -1,0 +1,38 @@
+
+<main>
+    <div class="btn">
+        <button>
+            <%=  link_to 'Add user', new_user_path %>
+        </button>
+    </div>
+    <aside>
+        <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>view</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @user.each do |data| %>
+            <tr>
+                <td><%= data.id %></td>
+                <td><%= data.firstname %></td>
+                <td><%= data.lastname %></td>
+                <td><%= data.username %></td>
+                <td><%= data.password %></td>
+                <td> 
+                    <a>
+                        <%=  link_to 'fetch one user', user_path(data) %>
+                    </a>
+                </td>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>
+    </aside>
+</main>
