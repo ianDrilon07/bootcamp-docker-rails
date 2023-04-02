@@ -1,5 +1,5 @@
 build:
-		docker-compose build
+	docker-compose build
 
 setup:
   	docker-compose run --rm web bin/rails db:setup
