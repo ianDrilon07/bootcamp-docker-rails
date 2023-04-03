@@ -16,4 +16,10 @@ class User < ApplicationRecord
             t.string :password
         end
     end
+
+    attr_writer :login
+
+    def login
+      @login || self.username || self.email
+    end
 end
