@@ -1,1 +1,10 @@
-<h1>edit</h1>
+<main>
+    <%= form_with model: @user, method: :put, local: true do |form| %>
+  <%= render "basic_inputs", form: form %>
+  <p>
+    <div style="margin-top:5px; text-align: right;">
+        <%= form.submit %>
+    </div>
+  </p>
+<% end %>
+</main>

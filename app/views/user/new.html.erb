@@ -1,40 +1,9 @@
 <main>
-    <%= form_with model: @user, url: user_index_path do |form| %>
-    <div style="margin-bottom: 15px;">
-        <%= form.label :firstname%><br>
-        <%= form.text_field :firstname, placeholder: "firstname" %>
-        
-        <% @user.errors.full_messages_for(:firstname).each do |message| %>
-            <div><%= message %></div>
-        <% end %>
-    </div>
+    <%= form_with model: @user, method: :put, url: user_index_path, local: true do |form| %>
+      <%= render "basic_inputs", form: form %>  
 
-    <div style="margin-bottom: 15px;">
-        <%= form.label :lastname %><br>
-        <%= form.text_field :lastname, placeholder: "lastname" %>
-        <% @user.errors.full_messages_for(:lastname).each do |message| %>
-            <div><%= message %></div>
-        <% end %>
-    </div>
-
-    <div style="margin-bottom: 15px;">
-        <%= form.label :username %><br>
-        <%= form.text_field :username, placeholder: "username" %>
-        <% @user.errors.full_messages_for(:username).each do |message| %>
-            <div><%= message %></div>
-        <% end %>
-    </div>
-
-    <div style="margin-bottom: 15px;">
-        <%= form.label :password %><br>
-        <%= form.text_field :password, placeholder: "password" %>
-        <% @user.errors.full_messages_for(:password).each do |message| %>
-            <div><%= message %></div>
-        <% end %>
-    </div>
-
-    <div style="margin-top:5px; text-align: right;">
-        <%= form.submit %>
-    </div>
-<% end %>
+       <div style="margin-top:5px; text-align: right;">
+           <%= form.submit %>
+       </div>
+    <% end %>
 </main>

@@ -1,8 +1,14 @@
 
 <main>
-    <div class="btn">
+    <%# <div class="btn">
         <button>
             <%=  link_to 'Add user', new_user_path %>
+        <%# </button>
+    </div> %>
+    <h1> User Table </h1>
+    <div class="btn">
+        <button>
+            <%=  link_to 'Sign out', destroy_user_session_path, method: :delete %>
         </button>
     </div>
     <aside>
@@ -13,7 +19,6 @@
                 <th>Firstname</th>
                 <th>Lastname</th>
                 <th>Username</th>
-                <th>Password</th>
                 <th>view</th>
             </tr>
         </thead>
@@ -24,10 +29,15 @@
                 <td><%= data.firstname %></td>
                 <td><%= data.lastname %></td>
                 <td><%= data.username %></td>
-                <td><%= data.password %></td>
                 <td> 
                     <a>
                         <%=  link_to 'view', user_path(data.id) %>
+                    </a>
+                     <a>
+                        <%=  link_to 'edit', edit_user_path(data.id) %>
+                    </a>
+                     <a>
+                        <%=  link_to 'delete', user_path(data.id), method: :delete %>
                     </a>
                 </td>
             </tr>

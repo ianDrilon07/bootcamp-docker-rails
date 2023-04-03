@@ -1,4 +1,7 @@
 class UserController < ApplicationController
+
+  before_action :authenticate_user!
+
   def index
     @user = User.all
   end
@@ -18,16 +21,32 @@ class UserController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
+    user = User.find(params[:id])
+
+    if user.update(user_params)
+      redirect_to root_path
+    else 
+      redirect_back
+    end
   end
 
   def destroy
+    @user = User.find(params[:id])
+    
   end
 
   def show 
     @user = User.find(params[:id])
+    @user.destroy
+    redirect_to root_path
+  end
+
+  def email_required?
+    unconfirmed_email.blank?
   end
 
   private
